@@ -6172,7 +6172,7 @@ static void sub_81B7704(u8 taskId)
     if (WaitFanfare(0) && ((gMain.newKeys & A_BUTTON) || (gMain.newKeys & B_BUTTON)))
     {
         sub_81B3394();
-        result = MonTryLearningNewMove(&gPlayerParty[gUnknown_0203CEC8.slotId], 1);
+        result = MonTryLearningNewMove(&gPlayerParty[gUnknown_0203CEC8.slotId], 1, 0);
         gUnknown_0203CEC8.unk10 = 1;
         switch (result)
         {
@@ -6194,7 +6194,7 @@ static void sub_81B7704(u8 taskId)
 
 static void sub_81B77AC(u8 taskId)
 {
-    u16 result = MonTryLearningNewMove(&gPlayerParty[gUnknown_0203CEC8.slotId], 0);
+    u16 result = MonTryLearningNewMove(&gPlayerParty[gUnknown_0203CEC8.slotId], 0, 0);
 
     switch (result)
     {
