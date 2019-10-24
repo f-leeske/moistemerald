@@ -3089,35 +3089,41 @@ static void sub_81B227C(u8 taskId)
     }
 }
 
-static u8 CanMonLearnTMTutor(struct Pokemon *mon, u16 item, u8 tutor)
+static bool32 CanLearnTutorMove(u16 species, u8 tutor) // note the change to bool32
 {
-    u16 move;
 
-    if (GetMonData(mon, MON_DATA_IS_EGG))
-        return CANNOT_LEARN_MOVE_IS_EGG;
+    if (tutor < 32)
 
-    if (item >= ITEM_TM01_FOCUS_PUNCH)
     {
-        if (CanMonLearnTMHM(mon, item - ITEM_TM01_FOCUS_PUNCH))
-            move = ItemIdToBattleMoveId(item);
-        else
-            return CANNOT_LEARN_MOVE;
-        do {} while (0); // :morphon:
-    }
-    else if (CanLearnTutorMove(GetMonData(mon, MON_DATA_SPECIES), tutor) == FALSE)
-    {
-        return CANNOT_LEARN_MOVE;
-    }
-    else
-    {
-        move = GetTutorMove(tutor);
+
+        u32 mask = 1 << tutor;
+
+        return sTutorLearnsets[species][0] & mask;
+
     }
 
-    if (MonKnowsMove(mon, move) == TRUE)
-        return ALREADY_KNOWS_MOVE;
-    else
-        return CAN_LEARN_MOVE;
-}
+    else if (tutor < 64)
+
+    {
+
+        u32 mask = 1 << (tutor - 32);
+
+        return sTutorLearnsets[species][1] & mask;
+
+    }
+
+    else // thanks to BluRose for suggesting this
+
+    {
+
+        u32 mask = 1 << (tutor - 64);
+
+        return sTutorLearnsets[species][2] & mask;
+
+    }
+
+} 
+
 
 static u16 GetTutorMove(u8 tutor)
 {
