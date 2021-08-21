@@ -12021,8 +12021,7 @@ static void Cmd_trycastformdatachange(void)
     form = TryWeatherFormChange(gBattleScripting.battler);
     if (form)
     {
-        BattleScriptPushCursorAndCallback(BattleScript_CastformChange);
-        *(&gBattleStruct->formToChangeInto) = form - 1;
+        BattleScriptPushCursorAndCallback(BattleScript_AttackerFormChangeEnd3);
     }
 }
 

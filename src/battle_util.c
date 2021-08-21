@@ -3598,7 +3598,7 @@ u8 TryWeatherFormChange(u8 battler)
     u8 ret = FALSE;
     bool32 weatherEffect = WEATHER_HAS_EFFECT;
 
-    if (gBattleMons[battler].species == SPECIES_CASTFORM)
+    if (GET_BASE_SPECIES_ID(gBattleMons[battler].species) == SPECIES_CASTFORM)
     {
         if (gBattleMons[battler].ability != ABILITY_FORECAST || gBattleMons[battler].hp == 0)
         {
@@ -3634,7 +3634,7 @@ u8 TryWeatherFormChange(u8 battler)
             ret = TRUE;
         }
     }
-    else if (gBattleMons[battler].species == SPECIES_CHERRIM)
+    else if (GET_BASE_SPECIES_ID(gBattleMons[battler].species) == SPECIES_CHERRIM)
     {
         if (gBattleMons[battler].ability != ABILITY_FLOWER_GIFT || gBattleMons[battler].hp == 0)
             ret = FALSE;
@@ -4197,8 +4197,8 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u16 ability, u8 special, u16 move
             effect = TryWeatherFormChange(battler);
             if (effect != 0)
             {
-                BattleScriptPushCursorAndCallback(BattleScript_CastformChange);
-                *(&gBattleStruct->formToChangeInto) = effect - 1;
+                BattleScriptPushCursorAndCallback(BattleScript_AttackerFormChangeEnd3);
+                effect++;
             }
             break;
         case ABILITY_TRACE:
@@ -5145,9 +5145,8 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u16 ability, u8 special, u16 move
                 effect = TryWeatherFormChange(battler);
                 if (effect)
                 {
-                    BattleScriptPushCursorAndCallback(BattleScript_CastformChange);
+                    BattleScriptPushCursorAndCallback(BattleScript_AttackerFormChangeEnd3);
                     gBattleScripting.battler = battler;
-                    gBattleStruct->formToChangeInto = effect - 1;
                     return effect;
                 }
             }
@@ -8532,6 +8531,10 @@ void UndoFormChange(u32 monId, u32 side, bool32 isSwitchingOut)
         {SPECIES_MINIOR_METEOR_VIOLET, SPECIES_MINIOR_CORE_VIOLET},
         {SPECIES_MINIOR_METEOR_YELLOW, SPECIES_MINIOR_CORE_YELLOW},
         {SPECIES_WISHIWASHI_SCHOOL, SPECIES_WISHIWASHI},
+        {SPECIES_CASTFORM_RAINY, SPECIES_CASTFORM},
+        {SPECIES_CASTFORM_SUNNY, SPECIES_CASTFORM},
+        {SPECIES_CASTFORM_SNOWY, SPECIES_CASTFORM},
+        {SPECIES_CHERRIM_SUNSHINE, SPECIES_CHERRIM},
     };
 
     if (isSwitchingOut) // Don't revert Mimikyu Busted when switching out

@@ -4196,27 +4196,9 @@ static const union AnimCmd sAnim_AGGRON_1[] =
     ANIMCMD_END,
 };
 
-static const union AnimCmd sAnim_CASTFORM_0[] =
-{
-    ANIMCMD_FRAME(0, 1),
-    ANIMCMD_END,
-};
-
 static const union AnimCmd sAnim_CASTFORM_1[] =
 {
-    ANIMCMD_FRAME(1, 1),
-    ANIMCMD_END,
-};
-
-static const union AnimCmd sAnim_CASTFORM_2[] =
-{
-    ANIMCMD_FRAME(2, 1),
-    ANIMCMD_END,
-};
-
-static const union AnimCmd sAnim_CASTFORM_3[] =
-{
-    ANIMCMD_FRAME(3, 1),
+    ANIMCMD_FRAME(0, 1),
     ANIMCMD_END,
 };
 
@@ -5101,15 +5083,9 @@ static const union AnimCmd sAnim_CHERUBI_1[] =
     ANIMCMD_END,
 };
 
-static const union AnimCmd sAnim_CHERRIM_NORMAL[] =
+static const union AnimCmd sAnim_CHERRIM[] =
 {
     ANIMCMD_FRAME(0, 1),
-    ANIMCMD_END,
-};
-
-static const union AnimCmd sAnim_CHERRIM_SUN[] =
-{
-    ANIMCMD_FRAME(1, 1),
     ANIMCMD_END,
 };
 
@@ -11127,10 +11103,8 @@ static const union AnimCmd *const sAnims_AGGRON[] ={
 };
 
 static const union AnimCmd *const sAnims_CASTFORM[] ={
-    sAnim_CASTFORM_0,
+    sAnim_GeneralFrame0,
     sAnim_CASTFORM_1,
-    sAnim_CASTFORM_2,
-    sAnim_CASTFORM_3,
 };
 
 static const union AnimCmd *const sAnims_VOLBEAT[] ={
@@ -11583,8 +11557,8 @@ static const union AnimCmd *const sAnims_CHERUBI[] ={
 };
 
 static const union AnimCmd *const sAnims_CHERRIM[] ={
-    sAnim_CHERRIM_NORMAL,
-    sAnim_CHERRIM_SUN,
+    sAnim_GeneralFrame0,
+    sAnim_CHERRIM,
 };
 
 static const union AnimCmd *const sAnims_SHELLOS[] ={
