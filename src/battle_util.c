@@ -3595,53 +3595,59 @@ bool8 HasNoMonsToSwitch(u8 battler, u8 partyIdBattlerOn1, u8 partyIdBattlerOn2)
 
 u8 TryWeatherFormChange(u8 battler)
 {
-    u8 ret = 0;
+    u8 ret = FALSE;
     bool32 weatherEffect = WEATHER_HAS_EFFECT;
 
     if (gBattleMons[battler].species == SPECIES_CASTFORM)
     {
         if (gBattleMons[battler].ability != ABILITY_FORECAST || gBattleMons[battler].hp == 0)
         {
-            ret = 0;
+            ret = FALSE;
         }
-        else if (!weatherEffect && !IS_BATTLER_OF_TYPE(battler, TYPE_NORMAL))
+        else if (!weatherEffect && gBattleMons[battler].species != SPECIES_CASTFORM)
         {
-            SET_BATTLER_TYPE(battler, TYPE_NORMAL);
-            ret = 1;
+            gBattleMons[battler].species = SPECIES_CASTFORM;
+            ret = TRUE;
         }
         else if (!weatherEffect)
         {
-            ret = 0;
+            ret = FALSE;
         }
-        else if (!(gBattleWeather & (WEATHER_RAIN_ANY | WEATHER_SUN_ANY | WEATHER_HAIL_ANY)) && !IS_BATTLER_OF_TYPE(battler, TYPE_NORMAL))
+        else if (!(gBattleWeather & (WEATHER_RAIN_ANY | WEATHER_SUN_ANY | WEATHER_HAIL_ANY)) && gBattleMons[battler].species != SPECIES_CASTFORM)
         {
-            SET_BATTLER_TYPE(battler, TYPE_NORMAL);
-            ret = 1;
+            gBattleMons[battler].species = SPECIES_CASTFORM;
+            ret = TRUE;
         }
-        else if (gBattleWeather & WEATHER_SUN_ANY && !IS_BATTLER_OF_TYPE(battler, TYPE_FIRE))
+        else if (gBattleWeather & WEATHER_SUN_ANY && gBattleMons[battler].species != SPECIES_CASTFORM_SUNNY)
         {
-            SET_BATTLER_TYPE(battler, TYPE_FIRE);
-            ret = 2;
+            gBattleMons[battler].species = SPECIES_CASTFORM_SUNNY;
+            ret = TRUE;
         }
-        else if (gBattleWeather & WEATHER_RAIN_ANY && !IS_BATTLER_OF_TYPE(battler, TYPE_WATER))
+        else if (gBattleWeather & WEATHER_RAIN_ANY && gBattleMons[battler].species != SPECIES_CASTFORM_RAINY)
         {
-            SET_BATTLER_TYPE(battler, TYPE_WATER);
-            ret = 3;
+            gBattleMons[battler].species = SPECIES_CASTFORM_RAINY;
+            ret = TRUE;
         }
-        else if (gBattleWeather & WEATHER_HAIL_ANY && !IS_BATTLER_OF_TYPE(battler, TYPE_ICE))
+        else if (gBattleWeather & WEATHER_HAIL_ANY && gBattleMons[battler].species != SPECIES_CASTFORM_SNOWY)
         {
-            SET_BATTLER_TYPE(battler, TYPE_ICE);
-            ret = 4;
+            gBattleMons[battler].species = SPECIES_CASTFORM_SNOWY;
+            ret = TRUE;
         }
     }
     else if (gBattleMons[battler].species == SPECIES_CHERRIM)
     {
         if (gBattleMons[battler].ability != ABILITY_FLOWER_GIFT || gBattleMons[battler].hp == 0)
-            ret = 0;
-        else if (gBattleMonForms[battler] == 0 && weatherEffect && gBattleWeather & WEATHER_SUN_ANY)
-            ret = 2;
-        else if (gBattleMonForms[battler] != 0 && (!weatherEffect || !(gBattleWeather & WEATHER_SUN_ANY)))
-            ret = 1;
+            ret = FALSE;
+        else if (gBattleMons[battler].species != SPECIES_CHERRIM_SUNSHINE && weatherEffect && (gBattleWeather & WEATHER_SUN_ANY))
+        {
+            gBattleMons[battler].species = SPECIES_CHERRIM_SUNSHINE;
+            ret = TRUE;
+        }
+        else if (gBattleMons[battler].species != SPECIES_CHERRIM && (!weatherEffect || !(gBattleWeather & WEATHER_SUN_ANY)))
+        {
+            gBattleMons[battler].species = SPECIES_CHERRIM;
+            ret = TRUE;
+        }
     }
 
     return ret;
