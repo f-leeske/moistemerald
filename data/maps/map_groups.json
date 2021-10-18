@@ -455,7 +455,10 @@
   "gMapGroup_Dungeons2": [
     "VerdanturfMeadow",
     "DewfordMeadow",
-    "DewfordManor_1F"
+    "DewfordManor_1F",
+    "RusturfAscent_1F",
+    "RusturfAscent_2F",
+    "RusturfAscent_1F_Inner"
   ],
   "gMapGroup_IndoorDynamic": [
     "SecretBase_RedCave1",

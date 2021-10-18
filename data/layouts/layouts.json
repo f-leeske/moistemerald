@@ -4630,6 +4630,36 @@
       "secondary_tileset": "gTileset_RusturfTunnel",
       "border_filepath": "data/layouts/AlteringCave_B1F/border.bin",
       "blockdata_filepath": "data/layouts/AlteringCave_B1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_RUSTURF_ASCENT1F",
+      "name": "RusturfAscent_1F_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_RusturfTunnel",
+      "border_filepath": "data/layouts/RusturfAscent_1F/border.bin",
+      "blockdata_filepath": "data/layouts/RusturfAscent_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_RUSTURF_ASCENT_2F",
+      "name": "RusturfAscent_2F_Layout",
+      "width": 30,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_RusturfTunnel",
+      "border_filepath": "data/layouts/RusturfAscent_2F/border.bin",
+      "blockdata_filepath": "data/layouts/RusturfAscent_2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_RUSTURF_ASCENT_1F_INNER",
+      "name": "RusturfAscent_1F_Inner_Layout",
+      "width": 30,
+      "height": 31,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_RusturfTunnel",
+      "border_filepath": "data/layouts/RusturfAscent_1F_Inner/border.bin",
+      "blockdata_filepath": "data/layouts/RusturfAscent_1F_Inner/map.bin"
     }
   ]
 }
