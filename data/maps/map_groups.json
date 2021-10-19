@@ -458,7 +458,8 @@
     "DewfordManor_1F",
     "RusturfAscent_1F",
     "RusturfAscent_2F",
-    "RusturfAscent_1F_Inner"
+    "RusturfAscent_1F_Inner",
+    "WhisperingVale"
   ],
   "gMapGroup_IndoorDynamic": [
     "SecretBase_RedCave1",

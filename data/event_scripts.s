@@ -1108,3 +1108,5 @@ Common_EventScript_LegendaryFlewAway:: @ 8273776
 	.include "data/maps/RusturfAscent_2F/scripts.inc"
 
 	.include "data/maps/RusturfAscent_1F_Inner/scripts.inc"
+
+	.include "data/maps/WhisperingVale/scripts.inc"

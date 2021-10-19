@@ -4660,6 +4660,16 @@
       "secondary_tileset": "gTileset_RusturfTunnel",
       "border_filepath": "data/layouts/RusturfAscent_1F_Inner/border.bin",
       "blockdata_filepath": "data/layouts/RusturfAscent_1F_Inner/map.bin"
+    },
+    {
+      "id": "LAYOUT_WHISPERING_VALE",
+      "name": "WhisperingVale_Layout",
+      "width": 40,
+      "height": 50,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/WhisperingVale/border.bin",
+      "blockdata_filepath": "data/layouts/WhisperingVale/map.bin"
     }
   ]
 }
