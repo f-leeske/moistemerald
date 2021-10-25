@@ -4664,8 +4664,8 @@
     {
       "id": "LAYOUT_WHISPERING_VALE",
       "name": "WhisperingVale_Layout",
-      "width": 40,
-      "height": 50,
+      "width": 44,
+      "height": 51,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Facility",
       "border_filepath": "data/layouts/WhisperingVale/border.bin",
