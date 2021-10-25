@@ -2,7 +2,7 @@
   "id": "MAP_WHISPERING_VALE",
   "name": "WhisperingVale",
   "layout": "LAYOUT_WHISPERING_VALE",
-  "music": "MUS_ABANDONED_SHIP",
+  "music": "DP_SEQ_D_02",
   "region_map_section": "MAPSEC_WHISPERING_VALE",
   "requires_flash": false,
   "weather": "WEATHER_RAIN",
