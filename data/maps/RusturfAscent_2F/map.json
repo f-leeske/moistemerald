@@ -14,7 +14,19 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": 0,
   "object_events": [
-
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MEGA_STONE",
+      "x": 24,
+      "y": 11,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Rusturf_Ascent_2F_EventScript_Coalossite",
+      "flag": "0"
+    }
   ],
   "warp_events": [
     {
@@ -60,7 +72,7 @@
       "dest_warp_id": 0
     },
     {
-      "x": 23,
+      "x": 24,
       "y": 5,
       "elevation": 0,
       "dest_map": "MAP_WHISPERING_VALE",
@@ -71,6 +83,21 @@
 
   ],
   "bg_events": [
-
+    {
+      "type": "hidden_item",
+      "x": 22,
+      "y": 11,
+      "elevation": 3,
+      "item": "ITEM_FIRE_GEM",
+      "flag": "FLAG_HIDDEN_ITEM_RUSTURF_ASCENT_FIRE_GEM"
+    },
+    {
+      "type": "hidden_item",
+      "x": 26,
+      "y": 11,
+      "elevation": 3,
+      "item": "ITEM_ROCK_GEM",
+      "flag": "FLAG_HIDDEN_ITEM_RUSTURF_ASCENT_ROCK_GEM"
+    }
   ]
 }

@@ -462,7 +462,7 @@
 #define FLAG_PETALBURG_GYM_CHILAN_BERRIES    0x1B1
 #define FLAG_ITEM_MT_PYRE_SUMMIT_TM61_WILLOWISP 0x1B2
 #define FLAG_MOVE_FORTREE_GYM_ENERGY_ROOT    0x1B3
-#define FLAG_MOVE_TUTOR_TAUGHT_MIMIC         0x1B4 // Unused
+#define FLAG_RUSTURF_ASCENT_COALOSSITE       0x1B4
 #define FLAG_LILYCOVE_MET_BALL_SWAPPER       0x1B5
 #define FLAG_HIDE_MOSSDEEP_CYNTHIA           0x1B6
 #define FLAG_RECEIVED_LATI_STONES            0x1B7
@@ -693,12 +693,12 @@
 #define FLAG_HIDDEN_ITEM_ALTERING_CAVE_CALCIUM               (FLAG_HIDDEN_ITEMS_START + 0x9A)
 #define FLAG_HIDDEN_ITEM_ALTERING_CAVE_CARBOS                (FLAG_HIDDEN_ITEMS_START + 0x9B)
 #define FLAG_HIDDEN_ITEM_ALTERING_CAVE_MAX_REVIVE            (FLAG_HIDDEN_ITEMS_START + 0x9C)
-#define FLAG_UNUSED_0x293  0x293 // Unused Flag
-#define FLAG_UNUSED_0x294  0x294 // Unused Flag
-#define FLAG_UNUSED_0x295  0x295 // Unused Flag
-#define FLAG_UNUSED_0x296  0x296 // Unused Flag
-#define FLAG_UNUSED_0x297  0x297 // Unused Flag
-#define FLAG_UNUSED_0x298  0x298 // Unused Flag
+#define FLAG_HIDDEN_ITEM_RUSTURF_ASCENT_MAX_REVIVE           (FLAG_HIDDEN_ITEMS_START + 0x9D)
+#define FLAG_HIDDEN_ITEM_RUSTURF_ASCENT_FIRE_GEM             (FLAG_HIDDEN_ITEMS_START + 0x9E)
+#define FLAG_HIDDEN_ITEM_RUSTURF_ASCENT_ROCK_GEM             (FLAG_HIDDEN_ITEMS_START + 0x9F)
+#define FLAG_HIDDEN_ITEM_WHISPERING_VALE_HEAVY_DUTY_BOOTS    (FLAG_HIDDEN_ITEMS_START + 0xA0)
+#define FLAG_HIDDEN_ITEM_WHISPERING_VALE_BALM_MUSHROOM       (FLAG_HIDDEN_ITEMS_START + 0xA1)
+#define FLAG_HIDDEN_ITEM_WHISPERING_VALE_ABILITY_PATCH       (FLAG_HIDDEN_ITEMS_START + 0xA2)
 #define FLAG_UNUSED_0x299  0x299 // Unused Flag
 #define FLAG_UNUSED_0x29A  0x29A // Unused Flag
 #define FLAG_UNUSED_0x29B  0x29B // Unused Flag
@@ -1298,7 +1298,7 @@
 #define FLAG_ALTERING_CAVE_COMET_SHARD                              0x4E9
 #define FLAG_ALTERING_CAVE_MASTER_BALL_2                            0x4EA
 #define FLAG_DEFEATED_LEAF                                          0x4EB
-#define FLAG_UNUSED_0x4EC                                           0x4EC // Unused Flag
+#define FLAG_WHISPERING_VALE_UTILITY_UMBRELLA                       0x4EC
 #define FLAG_UNUSED_0x4ED                                           0x4ED // Unused Flag
 #define FLAG_UNUSED_0x4EE                                           0x4EE // Unused Flag
 #define FLAG_UNUSED_0x4EF                                           0x4EF // Unused Flag

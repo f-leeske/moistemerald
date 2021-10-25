@@ -14,7 +14,19 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": 0,
   "object_events": [
-
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 7,
+      "y": 21,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Whispering_Vale_EventScript_UtilityUmbrella",
+      "flag": "FLAG_WHISPERING_VALE_UTILITY_UMBRELLA"
+    }
   ],
   "warp_events": [
     {
@@ -25,7 +37,7 @@
       "dest_warp_id": 5
     },
     {
-      "x": 22,
+      "x": 23,
       "y": 48,
       "elevation": 0,
       "dest_map": "MAP_RUSTURF_ASCENT_2F",
@@ -36,6 +48,29 @@
 
   ],
   "bg_events": [
-
+    {
+      "type": "hidden_item",
+      "x": 9,
+      "y": 6,
+      "elevation": 3,
+      "item": "ITEM_HEAVY_DUTY_BOOTS",
+      "flag": "FLAG_HIDDEN_ITEM_WHISPERING_VALE_HEAVY_DUTY_BOOTS"
+    },
+    {
+      "type": "hidden_item",
+      "x": 34,
+      "y": 10,
+      "elevation": 3,
+      "item": "ITEM_BALM_MUSHROOM",
+      "flag": "FLAG_HIDDEN_ITEM_WHISPERING_VALE_BALM_MUSHROOM"
+    },
+    {
+      "type": "hidden_item",
+      "x": 34,
+      "y": 33,
+      "elevation": 3,
+      "item": "ITEM_ABILITY_PATCH",
+      "flag": "FLAG_HIDDEN_ITEM_WHISPERING_VALE_ABILITY_PATCH"
+    }
   ]
 }

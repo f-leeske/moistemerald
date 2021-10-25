@@ -897,3 +897,11 @@ Altering_Cave_EventScript_MasterBall2::
 Altering_Cave_EventScript_CometShard::
 	finditem ITEM_COMET_SHARD
 	end
+
+Whispering_Vale_EventScript_UtilityUmbrella::
+	finditem ITEM_UTILITY_UMBRELLA
+	end
+
+Rusturf_Ascent_2F_EventScript_Coalossite::
+	finditem ITEM_COALOSSITE
+	end

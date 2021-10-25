@@ -50,6 +50,13 @@
 
   ],
   "bg_events": [
-
+    {
+      "type": "hidden_item",
+      "x": 5,
+      "y": 17,
+      "elevation": 3,
+      "item": "ITEM_MAX_REVIVE",
+      "flag": "FLAG_HIDDEN_ITEM_RUSTURF_ASCENT_MAX_REVIVE"
+    }
   ]
 }
