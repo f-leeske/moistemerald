@@ -1079,12 +1079,12 @@ const struct BaseStats gBaseStats[] =
     [SPECIES_WIGGLYTUFF] =
     {
         .baseAttack    = 70,
-        .baseDefense   = 45,
+        .baseDefense   = 45, // With Fur Coat, effectively base 139
         .baseSpeed     = 45,
         #ifdef REBALANCED_VERSION
             .baseHP        = 120,
             .baseSpAttack  = 105,
-            .baseSpDefense = 95,
+            .baseSpDefense = 60,
             .abilities = {ABILITY_FUR_COAT, ABILITY_COMPETITIVE, ABILITY_FRISK},
         #else
             .baseHP        = 140,
@@ -2325,14 +2325,16 @@ const struct BaseStats gBaseStats[] =
     [SPECIES_DEWGONG] =
     {
         .baseHP        = 90,
-        .baseAttack    = 70,
-        .baseDefense   = 80,
         .baseSpDefense = 95,
         #ifdef REBALANCED_VERSION
+            .baseAttack    = 90,
+            .baseDefense   = 60, // With Fur Coat, effectively base 169. Was 209 with base 80
             .baseSpeed     = 90,
             .baseSpAttack  = 95,
             .abilities = {ABILITY_FUR_COAT, ABILITY_HYDRATION, ABILITY_ICE_BODY},
         #else
+            .baseAttack    = 70,
+            .baseDefense   = 80,
             .baseSpeed     = 70,
             .baseSpAttack  = 70,
             .abilities = {ABILITY_THICK_FAT, ABILITY_HYDRATION, ABILITY_ICE_BODY},
@@ -4312,7 +4314,7 @@ const struct BaseStats gBaseStats[] =
     {
         .baseHP        = 85,
         .baseAttack    = 76,
-        .baseDefense   = 64,
+        .baseDefense   = 64, // With Fur Coat, effectively base 177
         .baseSpAttack  = 45,
         #ifdef REBALANCED_VERSION
             .baseSpeed     = 110,
@@ -4745,8 +4747,8 @@ const struct BaseStats gBaseStats[] =
         .baseDefense   = 70,
         .baseSpDefense = 70,
         #ifdef REBALANCED_VERSION
-            .baseSpeed     = 115,
-            .baseSpAttack  = 105,
+            .baseSpeed     = 105,
+            .baseSpAttack  = 115,
         #else
             .baseSpeed     = 95,
             .baseSpAttack  = 95,
@@ -11266,16 +11268,15 @@ const struct BaseStats gBaseStats[] =
 
     [SPECIES_PACHIRISU] =
     {
+        .baseHP        = 60,
         .baseAttack    = 45,
+        .baseDefense   = 70, // With Fur Coat, effectively base 189. Was 229 with base 90
         .baseSpeed     = 95,
-        .baseSpAttack  = 45,
         #ifdef REBALANCED_VERSION
-            .baseHP        = 70,
-            .baseDefense   = 90,
+            .baseSpAttack  = 75,
             .baseSpDefense = 110,
         #else
-            .baseHP        = 60,
-            .baseDefense   = 70,
+            .baseSpAttack  = 45,
             .baseSpDefense = 90,
         #endif
         .type1 = TYPE_ELECTRIC,
@@ -13134,7 +13135,7 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_SLOW,
         .eggGroup1 = EGG_GROUP_UNDISCOVERED,
         .eggGroup2 = EGG_GROUP_UNDISCOVERED,
-        .abilities = {ABILITY_SLOW_START, ABILITY_SLOW_START, ABILITY_SLOW_START},
+        .abilities = {ABILITY_SLOW_START, ABILITY_SLOW_START, ABILITY_CLEAR_BODY},
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
     },
@@ -15778,11 +15779,11 @@ const struct BaseStats gBaseStats[] =
         .baseSpAttack  = 60,
         .baseSpDefense = 70,
         #ifdef REBALANCED_VERSION
-            .baseAttack    = 100,
-            .baseSpeed     = 95,
-        #else
             .baseAttack    = 110,
             .baseSpeed     = 105,
+        #else
+            .baseAttack    = 100,
+            .baseSpeed     = 95,
         #endif
         .type1 = TYPE_NORMAL,
         .type2 = TYPE_GRASS,
@@ -18665,7 +18666,7 @@ const struct BaseStats gBaseStats[] =
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroup1 = EGG_GROUP_MONSTER,
         .eggGroup2 = EGG_GROUP_DRAGON,
-        .abilities = {ABILITY_STRONG_JAW, ABILITY_STRONG_JAW, ABILITY_STURDY},
+        .abilities = {ABILITY_STRONG_JAW, ABILITY_STRONG_JAW, ABILITY_ROCK_HEAD},
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
     },
@@ -28404,11 +28405,11 @@ const struct BaseStats gBaseStats[] =
         .baseSpAttack  = 60,
         .baseSpDefense = 70,
         #ifdef REBALANCED_VERSION
-            .baseAttack    = 100,
-            .baseSpeed     = 95,
-        #else
             .baseAttack    = 110,
             .baseSpeed     = 105,
+        #else
+            .baseAttack    = 100,
+            .baseSpeed     = 95,
         #endif
         .type1 = TYPE_NORMAL,
         .type2 = TYPE_GRASS,
@@ -28433,11 +28434,11 @@ const struct BaseStats gBaseStats[] =
         .baseSpAttack  = 60,
         .baseSpDefense = 70,
         #ifdef REBALANCED_VERSION
-            .baseAttack    = 100,
-            .baseSpeed     = 95,
-        #else
             .baseAttack    = 110,
             .baseSpeed     = 105,
+        #else
+            .baseAttack    = 100,
+            .baseSpeed     = 95,
         #endif
         .type1 = TYPE_NORMAL,
         .type2 = TYPE_GRASS,
@@ -28462,11 +28463,11 @@ const struct BaseStats gBaseStats[] =
         .baseSpAttack  = 60,
         .baseSpDefense = 70,
         #ifdef REBALANCED_VERSION
-            .baseAttack    = 100,
-            .baseSpeed     = 95,
-        #else
             .baseAttack    = 110,
             .baseSpeed     = 105,
+        #else
+            .baseAttack    = 100,
+            .baseSpeed     = 95,
         #endif
         .type1 = TYPE_NORMAL,
         .type2 = TYPE_GRASS,

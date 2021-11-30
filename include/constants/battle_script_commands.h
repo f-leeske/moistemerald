@@ -190,7 +190,25 @@
 #define VARIOUS_JUMP_IF_NOT_ROTOTILLER_AFFECTED 117
 #define VARIOUS_TRY_ACTIVATE_BATTLE_BOND        118
 #define VARIOUS_CONSUME_BERRY                   119
-#define VARIOUS_TRY_ACTIVATE_RAMPAGE            120
+#define VARIOUS_JUMP_IF_CANT_REVERT_TO_PRIMAL   120
+#define VARIOUS_HANDLE_PRIMAL_REVERSION         121
+#define VARIOUS_APPLY_PLASMA_FISTS              122
+#define VARIOUS_JUMP_IF_SPECIES                 123
+#define VARIOUS_UPDATE_ABILITY_POPUP            124
+#define VARIOUS_JUMP_IF_WEATHER_AFFECTED        125
+#define VARIOUS_JUMP_IF_LEAF_GUARD_PROTECTED    126
+#define VARIOUS_SET_ATTACKER_STICKY_WEB_USER    127
+#define VARIOUS_TRY_TO_APPLY_MIMICRY            128
+#define VARIOUS_PHOTON_GEYSER_CHECK             129
+#define VARIOUS_SHELL_SIDE_ARM_CHECK            130
+#define VARIOUS_TRY_NO_RETREAT                  131
+#define VARIOUS_TRY_TAR_SHOT                    132
+#define VARIOUS_CAN_TAR_SHOT_WORK               133
+#define VARIOUS_CHECK_POLTERGEIST               134
+#define VARIOUS_SET_OCTOLOCK                    135
+#define VARIOUS_CUT_1_3_HP_RAISE_STATS          136
+#define VARIOUS_TRY_END_NEUTRALIZING_GAS        137
+#define VARIOUS_TRY_ACTIVATE_RAMPAGE            138
 
 // Cmd_manipulatedamage
 #define DMG_CHANGE_SIGN            0
@@ -209,6 +227,7 @@
 // Cmd_statbuffchange
 #define STAT_BUFF_ALLOW_PTR                 (1 << 0)   // If set, allow use of jumpptr. Set in every use of statbuffchange
 #define STAT_BUFF_NOT_PROTECT_AFFECTED      (1 << 5)
+#define STAT_BUFF_UPDATE_MOVE_EFFECT        (1 << 6)
 
 // stat change flags for Cmd_playstatchangeanimation
 #define STAT_CHANGE_NEGATIVE             (1 << 0)

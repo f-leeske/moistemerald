@@ -62,12 +62,13 @@ struct ResourceFlags
     u32 flags[4];
 };
 
-#define RESOURCE_FLAG_FLASH_FIRE     0x1
-#define RESOURCE_FLAG_ROOST          0x2
-#define RESOURCE_FLAG_UNBURDEN       0x4
-#define RESOURCE_FLAG_INTIMIDATED    0x8
-#define RESOURCE_FLAG_TRACED         0x10
-#define RESOURCE_FLAG_EMERGENCY_EXIT 0x20
+#define RESOURCE_FLAG_FLASH_FIRE        0x1
+#define RESOURCE_FLAG_ROOST             0x2
+#define RESOURCE_FLAG_UNBURDEN          0x4
+#define RESOURCE_FLAG_INTIMIDATED       0x8
+#define RESOURCE_FLAG_TRACED            0x10
+#define RESOURCE_FLAG_EMERGENCY_EXIT    0x20
+#define RESOURCE_FLAG_NEUTRALIZING_GAS  0x40
 
 struct DisableStruct
 {
@@ -112,6 +113,9 @@ struct DisableStruct
     u8 throatChopTimer;
     u8 usedMoves:4;
     u8 wrapTurns;
+    u8 noRetreat:1;
+    u8 tarShot:1;
+    u8 octolock:1;
 };
 
 struct ProtectStruct
@@ -145,12 +149,13 @@ struct ProtectStruct
     u32 powderSelfDmg:1;
     u32 usedThroatChopPreventedMove:1;
     u32 statRaised:1;
-    u32 micle:1;
-    u32 custap:1;    // also quick claw
+    u32 usedMicleBerry:1;
+    u32 usedCustapBerry:1;    // also quick claw
     u32 touchedProtectLike:1;
     u32 disableEjectPack:1;
     u32 statFell:1;
     u32 pranksterElevated:1;
+    u32 quickDraw:1;
     u32 physicalDmg;
     u32 specialDmg;
     u8 physicalBattlerId;
@@ -182,6 +187,8 @@ struct SpecialStatus
     u8 damagedMons:4; // Mons that have been damaged directly by using a move, includes substitute.
     u8 dancerUsedMove:1;
     u8 dancerOriginalTarget:3;
+    u8 announceNeutralizingGas:1;   // See Cmd_switchineffects
+    u8 neutralizingGasRemoved:1;    // See VARIOUS_TRY_END_NEUTRALIZING_GAS
     s32 dmg;
     s32 physicalDmg;
     s32 specialDmg;
@@ -213,6 +220,7 @@ struct SideTimer
     u8 tailwindBattlerId;
     u8 luckyChantTimer;
     u8 luckyChantBattlerId;
+    u8 retaliateTimer;
 };
 
 struct FieldTimer
@@ -222,10 +230,7 @@ struct FieldTimer
     u8 wonderRoomTimer;
     u8 magicRoomTimer;
     u8 trickRoomTimer;
-    u8 grassyTerrainTimer;
-    u8 mistyTerrainTimer;
-    u8 electricTerrainTimer;
-    u8 psychicTerrainTimer;
+    u8 terrainTimer;
     u8 gravityTimer;
     u8 fairyLockTimer;
 };
@@ -236,7 +241,7 @@ struct WishFutureKnock
     u8 futureSightAttacker[MAX_BATTLERS_COUNT];
     u16 futureSightMove[MAX_BATTLERS_COUNT];
     u8 wishCounter[MAX_BATTLERS_COUNT];
-    u8 wishMonId[MAX_BATTLERS_COUNT];
+    u8 wishPartyId[MAX_BATTLERS_COUNT];
     u8 weatherDuration;
     u8 knockedOffMons[2]; // Each battler is represented by a bit. The array entry is dependent on the battler's side.
 };
@@ -465,10 +470,14 @@ struct MegaEvolutionData
     bool8 alreadyEvolved[4]; // Array id is used for mon position.
     u16 evolvedSpecies[MAX_BATTLERS_COUNT];
     u16 playerEvolvedSpecies;
+    u8 primalRevertedPartyIds[2]; // As flags using gBitTable;
+    u16 primalRevertedSpecies[MAX_BATTLERS_COUNT];
+    u16 playerPrimalRevertedSpecies;
     u8 battlerId;
     bool8 playerSelect;
     u8 triggerSpriteId;
     bool8 isWishMegaEvo;
+    bool8 isPrimalReversion;
 };
 
 struct Illusion
@@ -492,7 +501,7 @@ struct BattleStruct
     u8 turnEffectsBattlerId;
     u8 turnCountersTracker;
     u16 wrappedMove[MAX_BATTLERS_COUNT];
-    u8 moveTarget[MAX_BATTLERS_COUNT];
+    u16 moveTarget[MAX_BATTLERS_COUNT];
     u8 expGetterMonId;
     u8 wildVictorySong;
     u8 dynamicMoveType;
@@ -543,7 +552,7 @@ struct BattleStruct
     u16 synchronizeMoveEffect;
     bool8 anyMonHasTransformed;
     void (*savedCallback)(void);
-    u16 usedHeldItems[MAX_BATTLERS_COUNT];
+    u16 usedHeldItems[PARTY_SIZE][2];   // For each party member and side. For harvest, recycle
     u16 chosenItem[MAX_BATTLERS_COUNT];
     u8 AI_itemType[2];
     u8 AI_itemFlags[2];
@@ -597,6 +606,7 @@ struct BattleStruct
     bool8 spriteIgnore0Hp;
     struct Illusion illusion[MAX_BATTLERS_COUNT];
     s8 aiFinalScore[MAX_BATTLERS_COUNT][MAX_BATTLERS_COUNT][MAX_MON_MOVES]; // AI, target, moves to make debugging easier
+    s32 aiSimulatedDamage[MAX_BATTLERS_COUNT][MAX_BATTLERS_COUNT][MAX_MON_MOVES]; // attacker, target, move to make debugging easier
     u8 soulheartBattlerId;
     u8 friskedBattler; // Frisk needs to identify 2 battlers in double battles.
     bool8 friskedAbility; // If identifies two mons, show the ability pop-up only once.
@@ -607,6 +617,8 @@ struct BattleStruct
     struct StolenItem itemStolen[PARTY_SIZE];  // Player's team that had items stolen (two bytes per party member)
     u8 blunderPolicy:1; // should blunder policy activate
     u8 ballSpriteIds[2];    // item gfx, window gfx
+    u8 stickyWebUser;
+    u8 appearedInBattle; // Bitfield to track which Pokemon appeared in battle. Used for Burmy's form change
 };
 
 #define GET_MOVE_TYPE(move, typeArg)                        \
@@ -632,6 +644,16 @@ struct BattleStruct
     gBattleMons[battlerId].type2 = type;            \
     gBattleMons[battlerId].type3 = TYPE_MYSTERY;    \
 }
+
+#define IS_BATTLER_PROTECTED(battlerId)(gProtectStructs[battlerId].protected                                           \
+                                        || gSideStatuses[GetBattlerSide(battlerId)] & SIDE_STATUS_WIDE_GUARD           \
+                                        || gSideStatuses[GetBattlerSide(battlerId)] & SIDE_STATUS_QUICK_GUARD          \
+                                        || gSideStatuses[GetBattlerSide(battlerId)] & SIDE_STATUS_CRAFTY_SHIELD        \
+                                        || gSideStatuses[GetBattlerSide(battlerId)] & SIDE_STATUS_MAT_BLOCK            \
+                                        || gProtectStructs[battlerId].spikyShielded                                    \
+                                        || gProtectStructs[battlerId].kingsShielded                                    \
+                                        || gProtectStructs[battlerId].banefulBunkered                                  \
+                                        || gProtectStructs[battlerId].obstructed)                                      \
 
 #define GET_STAT_BUFF_ID(n)((n & 7))              // first three bits 0x1, 0x2, 0x4
 #define GET_STAT_BUFF_VALUE_WITH_SIGN(n)((n & 0xF8))
@@ -861,6 +883,7 @@ extern u8 gUnusedFirstBattleVar2;
 extern u32 gSideStatuses[2];
 extern struct SideTimer gSideTimers[2];
 extern u32 gStatuses3[MAX_BATTLERS_COUNT];
+extern u32 gStatuses4[MAX_BATTLERS_COUNT];
 extern struct DisableStruct gDisableStructs[MAX_BATTLERS_COUNT];
 extern u16 gPauseCounterBattle;
 extern u16 gPaydayMoney;
@@ -912,5 +935,6 @@ extern u8 gBattleControllerData[MAX_BATTLERS_COUNT];
 extern bool8 gHasFetchedBall;
 extern u8 gLastUsedBall;
 extern u16 gLastThrownBall;
+extern bool8 gSwapDamageCategory; // Photon Geyser, Shell Side Arm, Light That Burns the Sky
 
 #endif // GUARD_BATTLE_H

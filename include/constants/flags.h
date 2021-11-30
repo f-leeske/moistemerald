@@ -242,7 +242,7 @@
 
 #define FLAG_RECEIVED_GO_GOGGLES             0xDD
 #define FLAG_WINGULL_SENT_ON_ERRAND          0xDE
-#define FLAG_RECEIVED_CHOICE_SCARF            0xDF
+#define FLAG_RECEIVED_CHOICE_SCARF           0xDF
 #define FLAG_WINGULL_DELIVERED_MAIL          0xE0
 #define FLAG_RECEIVED_20_COINS               0xE1
 #define FLAG_RECEIVED_STARTER_DOLL           0xE2
@@ -275,7 +275,7 @@
 #define FLAG_ENABLE_RIVAL_MATCH_CALL         0xFD
 #define FLAG_RECEIVED_CHARCOAL               0xFE
 #define FLAG_LATIOS_OR_LATIAS_ROAMING        0xFF
-#define FLAG_RECEIVED_AGGRONITE            0x100
+#define FLAG_RECEIVED_AGGRONITE              0x100
 #define FLAG_RECEIVED_OLD_ROD                0x101
 #define FLAG_RECEIVED_COIN_CASE              0x102
 #define FLAG_RETURNED_RED_OR_BLUE_ORB        0x103
@@ -291,7 +291,7 @@
 #define FLAG_RECEIVED_TM46                   0x10D
 #define FLAG_CONTEST_SKETCH_CREATED          0x10E  // Set but never read
 #define FLAG_EVIL_TEAM_ESCAPED_STERN_SPOKE   0x10F
-#define FLAG_RECEIVED_SCOPE_LENS              0x110
+#define FLAG_RECEIVED_SCOPE_LENS             0x110
 #define FLAG_POKERUS_EXPLAINED               0x111
 #define FLAG_RECEIVED_RUNNING_SHOES          0x112
 #define FLAG_RECEIVED_QUICK_CLAW             0x113
@@ -368,8 +368,8 @@
 #define FLAG_MET_BATTLE_FRONTIER_GAMBLER     0x157
 #define FLAG_ENABLE_MR_STONE_POKENAV         0x158
 #define FLAG_NURSE_MENTIONS_GOLD_CARD        0x159
-#define FLAG_MET_FRONTIER_BEAUTY_MOVE_TUTOR  0x15A
-#define FLAG_MET_FRONTIER_SWIMMER_MOVE_TUTOR 0x15B
+#define FLAG_MET_FRONTIER_BEAUTY_MOVE_TUTOR  0x15A // Will be unused
+#define FLAG_MET_FRONTIER_SWIMMER_MOVE_TUTOR 0x15B // Will be unused
 
 // Trainer Rematch Flags
 #define FLAG_MATCH_CALL_REGISTERED           0x15C
@@ -660,8 +660,6 @@
 #define FLAG_HIDDEN_ITEM_ROUTE_115_FIST_PLATE                (FLAG_HIDDEN_ITEMS_START + 0x7B)
 #define FLAG_HIDDEN_ITEM_SKY_PILLAR_SKY_PLATE                (FLAG_HIDDEN_ITEMS_START + 0x7C)
 #define FLAG_HIDDEN_ITEM_UNDERWATER_127_MIND_PLATE           (FLAG_HIDDEN_ITEMS_START + 0x7D)
-#define FLAG_HIDDEN_ITEM_UNDERWATER_126_IRON_PLATE           (FLAG_HIDDEN_ITEMS_START + 0x7E)
-#define FLAG_HIDDEN_ITEM_DEWFORD_MANOR_DREAD_PLATE           (FLAG_HIDDEN_ITEMS_START + 0x7F)
 #define FLAG_HIDDEN_ITEM_ASHEN_WOODS_BALM_MUSHROOM_1         (FLAG_HIDDEN_ITEMS_START + 0x7E)
 #define FLAG_HIDDEN_ITEM_ASHEN_WOODS_BALM_MUSHROOM_2         (FLAG_HIDDEN_ITEMS_START + 0x7F)
 #define FLAG_HIDDEN_ITEM_RUINS_EXTERIOR_STAR_PIECE_1         (FLAG_HIDDEN_ITEMS_START + 0x80)
@@ -693,12 +691,14 @@
 #define FLAG_HIDDEN_ITEM_ALTERING_CAVE_CALCIUM               (FLAG_HIDDEN_ITEMS_START + 0x9A)
 #define FLAG_HIDDEN_ITEM_ALTERING_CAVE_CARBOS                (FLAG_HIDDEN_ITEMS_START + 0x9B)
 #define FLAG_HIDDEN_ITEM_ALTERING_CAVE_MAX_REVIVE            (FLAG_HIDDEN_ITEMS_START + 0x9C)
-#define FLAG_HIDDEN_ITEM_RUSTURF_ASCENT_MAX_REVIVE           (FLAG_HIDDEN_ITEMS_START + 0x9D)
-#define FLAG_HIDDEN_ITEM_RUSTURF_ASCENT_FIRE_GEM             (FLAG_HIDDEN_ITEMS_START + 0x9E)
-#define FLAG_HIDDEN_ITEM_RUSTURF_ASCENT_ROCK_GEM             (FLAG_HIDDEN_ITEMS_START + 0x9F)
-#define FLAG_HIDDEN_ITEM_WHISPERING_VALE_HEAVY_DUTY_BOOTS    (FLAG_HIDDEN_ITEMS_START + 0xA0)
-#define FLAG_HIDDEN_ITEM_WHISPERING_VALE_BALM_MUSHROOM       (FLAG_HIDDEN_ITEMS_START + 0xA1)
-#define FLAG_HIDDEN_ITEM_WHISPERING_VALE_ABILITY_PATCH       (FLAG_HIDDEN_ITEMS_START + 0xA2)
+#define FLAG_HIDDEN_ITEM_UNDERWATER_126_IRON_PLATE           (FLAG_HIDDEN_ITEMS_START + 0x9D)
+#define FLAG_HIDDEN_ITEM_DEWFORD_MANOR_DREAD_PLATE           (FLAG_HIDDEN_ITEMS_START + 0x9E)
+#define FLAG_HIDDEN_ITEM_RUSTURF_ASCENT_MAX_REVIVE           (FLAG_HIDDEN_ITEMS_START + 0x9F)
+#define FLAG_HIDDEN_ITEM_RUSTURF_ASCENT_FIRE_GEM             (FLAG_HIDDEN_ITEMS_START + 0xA0)
+#define FLAG_HIDDEN_ITEM_RUSTURF_ASCENT_ROCK_GEM             (FLAG_HIDDEN_ITEMS_START + 0xA1)
+#define FLAG_HIDDEN_ITEM_WHISPERING_VALE_HEAVY_DUTY_BOOTS    (FLAG_HIDDEN_ITEMS_START + 0xA2)
+#define FLAG_HIDDEN_ITEM_WHISPERING_VALE_BALM_MUSHROOM       (FLAG_HIDDEN_ITEMS_START + 0xA3)
+#define FLAG_HIDDEN_ITEM_WHISPERING_VALE_ABILITY_PATCH       (FLAG_HIDDEN_ITEMS_START + 0xA4)
 #define FLAG_UNUSED_0x299  0x299 // Unused Flag
 #define FLAG_UNUSED_0x29A  0x29A // Unused Flag
 #define FLAG_UNUSED_0x29B  0x29B // Unused Flag
@@ -1042,7 +1042,7 @@
 #define FLAG_ITEM_ROUTE_116_X_SPECIAL                               0x3E9
 #define FLAG_ITEM_ROUTE_104_PP_UP                                   0x3EA
 #define FLAG_ITEM_ROUTE_105_ABILITY_PATCH                           0x3EB
-#define FLAG_ITEM_ROUTE_106_KINGLERITE                                 0x3EC
+#define FLAG_ITEM_ROUTE_106_KINGLERITE                              0x3EC
 #define FLAG_ITEM_ROUTE_109_PP_UP                                   0x3ED
 #define FLAG_ITEM_ROUTE_109_RARE_CANDY                              0x3EE
 #define FLAG_ITEM_ROUTE_110_MANECTITE                               0x3EF
@@ -1114,7 +1114,7 @@
 #define FLAG_ITEM_MT_PYRE_EXTERIOR_GENGARITE                        0x431
 #define FLAG_ITEM_MT_PYRE_EXTERIOR_TM_48                            0x432
 #define FLAG_ITEM_NEW_MAUVILLE_FAST_BALL                            0x433
-#define FLAG_ITEM_NEW_MAUVILLE_DUSK_BALL                          0x434
+#define FLAG_ITEM_NEW_MAUVILLE_DUSK_BALL                            0x434
 #define FLAG_ITEM_ABANDONED_SHIP_HIDDEN_FLOOR_ROOM_6_LUXURY_BALL    0x435
 #define FLAG_ITEM_ABANDONED_SHIP_HIDDEN_FLOOR_ROOM_4_SCANNER        0x436
 #define FLAG_ITEM_SCORCHED_SLAB_TM_11                               0x437
@@ -1134,7 +1134,7 @@
 #define FLAG_ITEM_ROUTE_124_BLUE_SHARD                              0x445 
 #define FLAG_ITEM_SAFARI_ZONE_NORTH_WEST_TM_22                      0x446 
 #define FLAG_ITEM_ABANDONED_SHIP_ROOMS_1F_LOPUNNITE                 0x447 
-#define FLAG_ITEM_ABANDONED_SHIP_ROOMS_B1F_BIG_NUGGET              0x448 
+#define FLAG_ITEM_ABANDONED_SHIP_ROOMS_B1F_BIG_NUGGET               0x448 
 #define FLAG_ITEM_ABANDONED_SHIP_ROOMS_2_B1F_LEVEL_BALL             0x449 
 #define FLAG_ITEM_ABANDONED_SHIP_ROOMS_B1F_TM_13                    0x44A 
 #define FLAG_ITEM_ABANDONED_SHIP_ROOMS_2_1F_REVIVE                  0x44B 
@@ -1255,7 +1255,7 @@
 #define FLAG_DEFEATED_LANDORUS                                      0x4BE
 #define FLAG_DEFEATED_KYUREM                                        0x4BF
 #define FLAG_DEFEATED_KELDEO                                        0x4C0
-#define FLAG_DEFEATED_MELOETTA                                      0x4C1
+#define FLAG_RECEIVED_MELOETTA                                      0x4C1
 #define FLAG_DEFEATED_GENESECT                                      0x4C2
 #define FLAG_DEFEATED_XERNEAS                                       0x4C3
 #define FLAG_DEFEATED_YVELTAL                                       0x4C4
@@ -1298,8 +1298,8 @@
 #define FLAG_ALTERING_CAVE_COMET_SHARD                              0x4E9
 #define FLAG_ALTERING_CAVE_MASTER_BALL_2                            0x4EA
 #define FLAG_DEFEATED_LEAF                                          0x4EB
-#define FLAG_WHISPERING_VALE_UTILITY_UMBRELLA                       0x4EC
-#define FLAG_UNUSED_0x4ED                                           0x4ED // Unused Flag
+#define FLAG_LENT_NURSE_SURF                                        0x4EC
+#define FLAG_WHISPERING_VALE_UTILITY_UMBRELLA                       0x4ED
 #define FLAG_UNUSED_0x4EE                                           0x4EE // Unused Flag
 #define FLAG_UNUSED_0x4EF                                           0x4EF // Unused Flag
 

@@ -275,33 +275,35 @@
 #define EV_ITEM_RAISE_LIMIT 252
 
 // Battle move flags
-#define FLAG_MAKES_CONTACT          (1 << 0)
-#define FLAG_PROTECT_AFFECTED       (1 << 1)
-#define FLAG_MAGIC_COAT_AFFECTED    (1 << 2)
-#define FLAG_SNATCH_AFFECTED        (1 << 3)
-#define FLAG_MIRROR_MOVE_AFFECTED   (1 << 4)
-#define FLAG_KINGS_ROCK_AFFECTED    (1 << 5)
-#define FLAG_HIGH_CRIT              (1 << 6)
-#define FLAG_RECKLESS_BOOST         (1 << 7)
-#define FLAG_IRON_FIST_BOOST        (1 << 8)
-#define FLAG_SHEER_FORCE_BOOST      (1 << 9)
-#define FLAG_STRONG_JAW_BOOST       (1 << 10)
-#define FLAG_MEGA_LAUNCHER_BOOST    (1 << 11)
-#define FLAG_STAT_STAGES_IGNORED    (1 << 12)
-#define FLAG_DMG_MINIMIZE           (1 << 13)
-#define FLAG_DMG_UNDERGROUND        (1 << 14)
-#define FLAG_DMG_UNDERWATER         (1 << 15)
-#define FLAG_SOUND                  (1 << 16)
-#define FLAG_BALLISTIC              (1 << 17)
-#define FLAG_PROTECTION_MOVE        (1 << 18)
-#define FLAG_POWDER                 (1 << 19)
-#define FLAG_TARGET_ABILITY_IGNORED (1 << 20)
-#define FLAG_DANCE                  (1 << 21)
-#define FLAG_DMG_2X_IN_AIR          (1 << 22) // If target is in the air, can hit and deal double damage.
-#define FLAG_DMG_IN_AIR             (1 << 23) // If target is in the air, can hit.
+#define FLAG_MAKES_CONTACT                        (1 << 0)
+#define FLAG_PROTECT_AFFECTED                     (1 << 1)
+#define FLAG_MAGIC_COAT_AFFECTED                  (1 << 2)
+#define FLAG_SNATCH_AFFECTED                      (1 << 3)
+#define FLAG_MIRROR_MOVE_AFFECTED                 (1 << 4)
+#define FLAG_KINGS_ROCK_AFFECTED                  (1 << 5)
+#define FLAG_HIGH_CRIT                            (1 << 6)
+#define FLAG_RECKLESS_BOOST                       (1 << 7)
+#define FLAG_IRON_FIST_BOOST                      (1 << 8)
+#define FLAG_SHEER_FORCE_BOOST                    (1 << 9)
+#define FLAG_STRONG_JAW_BOOST                     (1 << 10)
+#define FLAG_MEGA_LAUNCHER_BOOST                  (1 << 11)
+#define FLAG_STAT_STAGES_IGNORED                  (1 << 12)
+#define FLAG_DMG_MINIMIZE                         (1 << 13)
+#define FLAG_DMG_UNDERGROUND                      (1 << 14)
+#define FLAG_DMG_UNDERWATER                       (1 << 15)
+#define FLAG_SOUND                                (1 << 16)
+#define FLAG_BALLISTIC                            (1 << 17)
+#define FLAG_PROTECTION_MOVE                      (1 << 18)
+#define FLAG_POWDER                               (1 << 19)
+#define FLAG_TARGET_ABILITY_IGNORED               (1 << 20)
+#define FLAG_DANCE                                (1 << 21)
+#define FLAG_DMG_2X_IN_AIR                        (1 << 22) // If target is in the air, can hit and deal double damage.
+#define FLAG_DMG_IN_AIR                           (1 << 23) // If target is in the air, can hit.
 #define FLAG_DMG_UNGROUNDED_IGNORE_TYPE_IF_FLYING (1 << 24) // Makes a Ground type move do 1x damage to flying and levitating targets
-#define FLAG_KEEN_EDGE_BOOST        (1 << 25)
-#define FLAG_THAW_USER              (1 << 26) // For moves that thaw the user
+#define FLAG_THAW_USER                            (1 << 25)
+#define FLAG_HIT_IN_SUBSTITUTE                    (1 << 26) // Hyperspace Fury
+#define FLAG_TWO_STRIKES                          (1 << 27) // A move with this flag will strike twice, and may apply its effect on each hit
+#define FLAG_KEEN_EDGE_BOOST                      (1 << 28)
 
 // Split defines.
 #define SPLIT_PHYSICAL  0x0
@@ -333,6 +335,7 @@
 // Evolution types
 #define EVO_MEGA_EVOLUTION                0xffff // Not an actual evolution, used to temporarily mega evolve in battle.
 #define EVO_MOVE_MEGA_EVOLUTION           0xfffe // Mega Evolution that checks for a move instead of held item.
+#define EVO_PRIMAL_REVERSION              0xfffd // Not an actual evolution, used to undergo primal reversion in battle.
 #define EVO_FRIENDSHIP                    1      // Pokémon levels up with friendship ≥ 220
 #define EVO_FRIENDSHIP_DAY                2      // Pokémon levels up during the day with friendship ≥ 220
 #define EVO_FRIENDSHIP_NIGHT              3      // Pokémon levels up at night with friendship ≥ 220
@@ -364,8 +367,8 @@
 #define EVO_SPECIFIC_MON_IN_PARTY         29     // Pokémon levels up with a specified Pokémon in party
 #define EVO_LEVEL_DARK_TYPE_MON_IN_PARTY  30     // Pokémon reaches the specified level with a Dark Type Pokémon in party
 #define EVO_TRADE_SPECIFIC_MON            31     // Pokémon is traded for a specified Pokémon
-#define EVO_ITEM_HOLD                     32     // Pokémon levels up, holds specified item
-#define EVO_SPECIFIC_MAP                  33     // Pokémon levels up on specified map
+#define EVO_SPECIFIC_MAP                  32     // Pokémon levels up on specified map
+#define EVO_ITEM_HOLD                     33     // Pokémon levels up, holds specified item
 
 #define EVOS_PER_MON 10
 
