@@ -31,7 +31,7 @@ static const u8 sFirePunchDescription[] = _(
 
 static const u8 sIcePunchDescription[] = _(
     "An icy punch that may\n"
-    "freeze the foe.");
+    "reduce the foe's speed.");
 
 static const u8 sThunderPunchDescription[] = _(
     "An electrified punch that\n"
@@ -231,11 +231,11 @@ static const u8 sSurfDescription[] = _(
 
 static const u8 sIceBeamDescription[] = _(
     "Blasts the foe with an icy\n"
-    "beam that may freeze it.");
+    "beam that may reduce its speed.");
 
 static const u8 sBlizzardDescription[] = _(
     "Hits the foe with an icy\n"
-    "storm that may freeze it.");
+    "storm that may reduce its speed.");
 
 static const u8 sPsybeamDescription[] = _(
     "Fires a peculiar ray that\n"
@@ -2962,7 +2962,7 @@ static const u8 sDRAGON_ENERGYDescription[] = _(
 
 static const u8 sFREEZING_GLAREDescription[] = _(
     "Shoots psychic power from\n"
-    "the eyes. May freeze the foe.");
+    "the eyes. May reduce the foe's speed.");
 
 static const u8 sFIERY_WRATHDescription[] = _(
     "An attack fueled by your\n"

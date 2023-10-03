@@ -119,7 +119,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_ICE_PUNCH] =
     {
-        .effect = EFFECT_FREEZE_HIT,
+        .effect = EFFECT_SPEED_DOWN_HIT,
         .power = 75,
         .type = TYPE_ICE,
         .accuracy = 100,
@@ -947,7 +947,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         #else
             .power = 95,
         #endif
-        .effect = EFFECT_FREEZE_HIT,
+        .effect = EFFECT_SPEED_DOWN_HIT,
         .type = TYPE_ICE,
         .accuracy = 100,
         .pp = 10,
@@ -965,7 +965,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         #else
             .power = 120,
         #endif
-        .effect = EFFECT_FREEZE_HIT,
+        .effect = EFFECT_SPEED_DOWN_HIT,
         .type = TYPE_ICE,
         .accuracy = 70,
         .pp = 5,
@@ -2903,7 +2903,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_POWDER_SNOW] =
     {
-        .effect = EFFECT_FREEZE_HIT,
+        .effect = EFFECT_SPEED_DOWN_HIT,
         .power = 40,
         .type = TYPE_ICE,
         .accuracy = 100,
@@ -5444,7 +5444,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_BULK_UP] =
     {
-        .effect = EFFECT_BULK_UP,
+    .effect = EFFECT_BULK_UP,
         .power = 0,
         .type = TYPE_FIGHTING,
         .accuracy = 0,
@@ -9086,7 +9086,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_FREEZE_DRY] =
     {
         #ifdef REBALANCED_VERSION
-            .power = 95,
+            .power = 80,
             .pp = 15,
         #else
             .power = 70,
@@ -11681,7 +11681,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_FREEZING_GLARE] =
     {
         .power = 90,
-        .effect = EFFECT_FREEZE_HIT,
+        .effect = EFFECT_SPEED_DOWN_HIT,
         .type = TYPE_PSYCHIC,
         .accuracy = 100,
         .pp = 10,
