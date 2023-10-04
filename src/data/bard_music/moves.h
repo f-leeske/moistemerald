@@ -2845,7 +2845,15 @@ const struct BardSound gBardSounds_Moves[MOVES_COUNT][6] = {
         { 0x27, 0x0, 0x0, 0x0, 0x0},
         NULL_BARD_SOUND,
         NULL_BARD_SOUND
-    }
+    },
+    [MOVE_BEAKCRIT] = {
+        { 0x11, 0x0, 0x0, 0x0, 0x0},
+        { 0xb, 0x0, 0x0, 0x0, 0x0},
+        { 0x33, 0x0, 0x0, 0x0, 0x0},
+        NULL_BARD_SOUND,
+        NULL_BARD_SOUND,
+        NULL_BARD_SOUND
+    },
 };
 
 #endif //GUARD_DATA_BARD_MUSIC_MOVES_H
